@@ -38,7 +38,7 @@ public class ControlClickAspect {
             return;
         }
         ControlClick controlClick = method.getAnnotation(ControlClick.class);
-        if (!ClickUtil.isFastDoubleClick(view, controlClick.value())) {//判断是否是快速点击,不是就放行
+        if (controlClick != null && !ClickUtil.isFastDoubleClick(view, controlClick.value())) {//判断是否是快速点击,不是就放行
             joinPoint.proceed();
         }
     }
